@@ -7,8 +7,12 @@ const cors = require("cors");
 
 app.use(
     cors({
-        origin: "http://127.0.0.1:5173",
+        origin: ["http://localhost:5173", "http://127.0.0.1:5173"],
+        default: "http://localhost:5173"
     })
+    // cors({
+    //     origin: "http://localhost:5173",
+    // })
 );
 app.use(express.json());
 app.use("/api/v1", require("./src/v1/routes"));
